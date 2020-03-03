@@ -26,7 +26,7 @@ public class PriorityRESTController {
 
     @RequestMapping("/list")
     public List<Priority> getAll(){
-        return  null;
+        return  service.getAll();
     }
 
 

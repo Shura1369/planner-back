@@ -12,7 +12,7 @@ public class PriorityDAOImpl implements IPriorityDAO {
     }
 
     @Override
-    public Priority get(Long id) {
+    public Priority get(Integer id) {
         return null;
     }
 
@@ -22,7 +22,7 @@ public class PriorityDAOImpl implements IPriorityDAO {
     }
 
     @Override
-    public Priority delete(Long id) {
+    public Priority delete(Integer id) {
         return null;
     }
 
