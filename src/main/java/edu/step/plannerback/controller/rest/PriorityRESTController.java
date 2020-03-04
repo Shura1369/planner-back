@@ -3,9 +3,7 @@ package edu.step.plannerback.controller.rest;
 import edu.step.plannerback.model.Priority;
 import edu.step.plannerback.service.priority.interfaces.IPriorityService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,6 +25,29 @@ public class PriorityRESTController {
     @RequestMapping("/list")
     public List<Priority> getAll(){
         return  service.getAll();
+    }
+
+
+
+
+
+    @GetMapping ("/delete/{id}")
+    public Priority delete(@PathVariable("id") Integer id){
+        return  service.delete(id);
+    }
+
+    @PostMapping("/create")
+    public Priority create (@RequestBody Priority priority)
+    {
+        return  service.create(priority);
+    }
+
+
+
+    @PostMapping("/update")
+    public Priority update (@RequestBody Priority priority)
+    {
+        return  service.update(priority);
     }
 
 

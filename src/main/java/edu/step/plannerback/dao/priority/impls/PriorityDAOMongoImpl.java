@@ -22,7 +22,7 @@ public class PriorityDAOMongoImpl implements IPriorityDAO {
     private List<Priority> list = new ArrayList<>(
 
             Arrays.asList(
-                    new Priority(1,"High", "#3943e5"),
+                    new Priority(1,"Light", "#3943e5"),
                     new Priority(2,"Medium", "#85D1B2"),
                     new Priority(3,"High", "#F1828D"),
                     new Priority(4,"Ultra high", "#F1128D"),
@@ -45,22 +45,28 @@ public class PriorityDAOMongoImpl implements IPriorityDAO {
 
     @Override
     public Priority create(Priority priority) {
-        return null;
+        Integer lastId = this.getAll().stream()
+                .mapToInt(Priority::getId).max().orElse(0);
+        priority.setId(lastId + 1);
+
+        return repository.save(priority);
     }
 
     @Override
     public Priority get(Integer id) {
-        return null;
+        return repository.findById(id).orElse(null);
     }
 
     @Override
     public Priority update(Priority priority) {
-        return null;
+        return repository.save(priority);
     }
 
     @Override
     public Priority delete(Integer id) {
-        return null;
+        Priority priority = this.get(id);
+        this.repository.deleteById(id);
+        return priority;
     }
 
     @Override
