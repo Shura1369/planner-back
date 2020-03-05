@@ -20,15 +20,10 @@ public class PriorityRESTController {
     }
 
 
-
-
     @RequestMapping("/list")
     public List<Priority> getAll(){
         return  service.getAll();
     }
-
-
-
 
 
     @GetMapping ("/delete/{id}")
@@ -41,7 +36,6 @@ public class PriorityRESTController {
     {
         return  service.create(priority);
     }
-
 
 
     @PostMapping("/update")
